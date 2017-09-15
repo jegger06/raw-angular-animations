@@ -1,0 +1,9 @@
+:host {
+    display: block;
+    border: 1px solid blue;
+    padding: 20px;
+}
+
+:host(.favorite) {
+    border: 1px solid red
+}

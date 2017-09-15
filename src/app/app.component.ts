@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  isFavorite: boolean = false;
+
+  courseGoals: Array<Object> = [
+    { title: 'Master Angular Styling', isActiveGoal: true },
+    { title: 'Understand Angular Animations', isActiveGoal: false },
+    { title: 'Master Angular Animations', isActiveGoal: false }
+  ];
+
+  constructor(private renderer: Renderer2) { }
+
+  showQuote(element: HTMLElement) {
+    // console.log(element);
+    this.renderer.setStyle(element, 'display', 'block');
+    
+  }
 }
