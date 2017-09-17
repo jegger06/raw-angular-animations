@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>072 A Bug in Angular 4 Animations</title>
+</head>
+<body>
+<div class="asset-container">
+    <div class="asset-container__padding article-view">
+        <div class="w3c-default">
+            <p>When animating the <code>scale()</code>  of an element, Angular 4 seems to have a little bug as of now. It won't animate correctly if you don't set the <code>scale()</code>  in a previous step.</p>
+
+<p>So the following code won't animate the scale correctly:</p>
+
+
+
+<pre class="prettyprint linenums">transition('unselected =&gt; selected', [
+  style({
+    border: '2px solid black',
+    padding: '4px'
+  }),
+  animate('600ms 100ms ease-out', style({
+    backgroundColor: 'red',
+    transform: 'scale(1.05)'
+  })),
+  animate(300)
+])</pre>
+
+
+
+
+
+<p>This code will:</p>
+
+
+
+<pre class="prettyprint linenums">transition('unselected =&gt; selected', [
+  style({
+    border: '2px solid black',
+    padding: '4px',
+    transform: 'scale(1)'
+  }),
+  animate('600ms 100ms ease-out', style({
+    backgroundColor: 'red',
+    transform: 'scale(1.05)'
+  })),
+  animate(300)
+])</pre>
+
+
+
+
+
+
+
+<p><br></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
