@@ -2,8 +2,13 @@
     display: block;
     border: 1px solid blue;
     padding: 20px;
+    transition: 300ms ease-in;
 }
 
 :host(.favorite) {
     border: 1px solid red
+}
+
+:host-context p {
+    font-weight: bold;
 }

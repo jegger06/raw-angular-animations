@@ -1,10 +1,11 @@
+<!--
 <div class="container">
-  <!-- <app-goal
+   <app-goal
     *ngFor="let goal of courseGoals" 
     [goal]="goal" 
     (click)="goal.isActiveGoal = !goal.isActiveGoal" 
     [ngClass]="{active: goal.isActiveGoal}">
-  </app-goal> -->
+  </app-goal> 
   <h1>My Quote</h1>
   <button class="btn btn-primary mb-3" (click)="showQuote(quote)">Show Quote</button>
   <div style="display: none" #quote>
@@ -13,5 +14,23 @@
       (click)="isFavorite = !isFavorite"
       [ngStyle]="{'width.%': isFavorite ? 70 : 50}">
     </app-quote>
+    <p>This is a paragraph</p>
 </div>
+</div>
+-->
+
+<div class="container">
+  <div class="row mb-4">
+    <div class="col-md-12">
+      <ul class="nav nav-pills">
+        <li role="presentation" class="nav-item"><a routerLink="/" class="nav-link" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Projects</a></li>
+        <li role="presentation" class="nav-item"><a routerLink="/users" class="nav-link" routerLinkActive="active">Users</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
