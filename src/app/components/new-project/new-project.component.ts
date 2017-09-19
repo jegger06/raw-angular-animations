@@ -2,11 +2,15 @@ import { Component, OnInit, EventEmitter, Output, ViewChild } from '@angular/cor
 import { NgForm } from '@angular/forms';
 
 import { Project } from '../../models/project.model';
+import { buttonStateTrigger } from '../../animations/btn.animations';
 
 @Component({
   selector: 'app-new-project',
   templateUrl: './new-project.component.html',
-  styleUrls: ['./new-project.component.css']
+  styleUrls: ['./new-project.component.css'],
+  animations: [
+    buttonStateTrigger
+  ]
 })
 export class NewProjectComponent implements OnInit {
   @Output() creationCancelled = new EventEmitter<void>();
